@@ -1,0 +1,28 @@
+[user]
+  name = Lucas Melnyk
+  email = lucas.melnyk@mvebio.com
+
+[core]
+  editor = nvim
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+
+[merge]
+  conflictstyle = zdiff3
+
+[diff]
+  colorMoved = default
+
+[pull]
+  rebase = false
+
+[init]
+  defaultBranch = main
+

@@ -110,8 +110,23 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
+# Neofetch: show images in Ghostty, but don't break mouse/hover
+neofetch() {
+  command neofetch "$@"
+  # Ghostty: turn OFF all common mouse-reporting modes after programs forget to disable them
+  printf $'\e[0m\e[?25h\e[?1000l\e[?1002l\e[?1003l\e[?1004l\e[?1005l\e[?1006l\e[?1015l'
+}
 
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
+fastfetch() {
+  if [ -n "$TMUX" ]; then
+    command fastfetch --logo-type kitty-icat "$@"
+  else
+    command fastfetch --logo-type kitty "$@"
+  fi
+}
+
+
+#Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
 # the $ZSH_CUSTOM folder, with .zsh extension. Examples:
